@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 {
     
     private PlayerInputAcion _playerInputAcion = null;
+
+    private GroundDetection _groundDetection = null;
     
     private Vector2 _movementValue = Vector2.zero;
 
@@ -27,13 +29,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerInputAcion = new PlayerInputAcion();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _groundDetection = GetComponent<GroundDetection>();
         _isPressingUp = false;
     }
 
 
     private void Update()
     {
-        if (_movementValue.y > 0)
+        if (_movementValue.y > 0 && _groundDetection.IsOnGround)
         {
             _isPressingUp = true;
         }
