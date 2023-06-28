@@ -18,7 +18,7 @@ public class GroundDetection : MonoBehaviour
     private void Awake()
     {
        _mask.value = 0;
-       _mask.value = 1 << LayerMask.NameToLayer("Ground");
+       _mask.value = (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("Jumpbable"));
        is_on_ground = false;
        Assert.IsNotNull(_playerFeetPosition,"You need to set a transform for this script to work");
     }
