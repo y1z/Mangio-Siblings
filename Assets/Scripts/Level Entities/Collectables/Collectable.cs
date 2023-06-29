@@ -29,6 +29,11 @@ public class Collectable : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        _collectEvent.RemoveAllListeners();
+    }
+
     public bool IsCollected()
     {
         return is_collected;
