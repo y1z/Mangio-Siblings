@@ -16,7 +16,6 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         
-        print( "collected coins = " + _collectedCoins.ToString());
     }
 
     private void setUpForLevel()
@@ -35,5 +34,6 @@ public class LevelManager : MonoBehaviour
         _collectedCoins += 1;
     }
 
+    public int CollectedCoins => _collectedCoins;
 
 }

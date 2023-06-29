@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Score Counter
+  - Game Over
   layers:
   - Default
   - TransparentFX

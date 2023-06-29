@@ -5,15 +5,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerMovement _playerMovement; 
-    // Start is called before the first frame update
+    public PlayerMovement _playerMovement;
+
+    private bool is_alive = true;
+    
     void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        is_alive = true;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void setIsAlive(bool value)
     {
+        is_alive = value;
     }
+
+    public bool IsAlive => is_alive;
+
+
 }
