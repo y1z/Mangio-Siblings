@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 public class Collectable : MonoBehaviour
 {
     private bool is_collected = false;
     private Collider2D _collider;
+    public UnityEvent _collectEvent;
 
     private void Awake()
     {
@@ -22,11 +24,9 @@ public class Collectable : MonoBehaviour
         if(col.CompareTag("Player"))
         {
             is_collected = true;
-            
-           print("Player entered collectable");
+           _collectEvent.Invoke();
            gameObject.SetActive(false); 
         }
-        
     }
 
     public bool IsCollected()

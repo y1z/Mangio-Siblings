@@ -8,6 +8,5 @@ public class Coin : Collectable
 {
     [SerializeField] private int _value = 1;
     public int Value => _value ;
-    private UnityEvent _collectEvent;
 
 }

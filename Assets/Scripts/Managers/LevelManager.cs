@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,30 @@ public class LevelManager : MonoBehaviour
     private int _collectedCoins = 0;
     void Start()
     {
-      _levelCoins = FindObjectsOfType<Coin>();
+        setUpForLevel();
     }
     
     void Update()
     {
         
+        print( "collected coins = " + _collectedCoins.ToString());
     }
+
+    private void setUpForLevel()
+    {
+      _levelCoins = FindObjectsOfType<Coin>();
+      _collectedCoins = 0;
+      foreach (Coin coin in _levelCoins)
+      {
+         coin._collectEvent.AddListener( IncreaseScore ); 
+      }
+    }
+
+
+    private void IncreaseScore()
+    {
+        _collectedCoins += 1;
+    }
+
+
 }
