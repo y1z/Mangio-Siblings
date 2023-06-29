@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
+    private Coin[] _levelCoins  = null;
+    private int _collectedCoins = 0;
     void Start()
     {
-        
+      _levelCoins = FindObjectsOfType<Coin>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
