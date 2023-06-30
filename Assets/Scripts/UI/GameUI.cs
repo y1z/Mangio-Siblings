@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -30,5 +31,16 @@ public class GameUI : MonoBehaviour
     void UpdateScore()
     {
         _scoreText.text = "Score " + _levelManager.CollectedCoins;
+    }
+
+
+    public void LoadLevel(string level_name)
+    {
+        SceneManager.LoadScene(level_name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
